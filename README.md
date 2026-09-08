@@ -34,15 +34,72 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 **Procedure**
 
-/* write all the steps invloved */
+/* write all the steps invloved
+1.Type the program in Quartus software.
+
+2.Compile and run the program.
+
+3.Generate the RTL schematic and save the logic diagram.
+
+4.Create nodes for inputs and outputs to generate the timing diagram.
+
+5.For different input combinations generate the timing diagram.
+*/
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* Program for flipflops and verify its truth table in quartus using Verilog programming.
+Developed by: S.M.Kanishka
+Register Number: 212225220048
 */
+```
+module jkffde(q, qb,j,k,clock,reset);
+	input j,k,clock,reset;
+	output reg q, qb;
+	
+always @ (posedge (clock))
+
+	begin
+		if (!reset)
+			begin
+				q <= q;
+				qb <=qb;
+			end 
+			
+else
+
+
+begin 
+				if (j == 0 && k == 0)
+						begin
+						q <= q;
+						qb <= qb;
+						end
+		else if(j != k)
+						begin
+						q <= j;
+						qb <= k;
+						end 
+				else if (j == 1 && k == 1)
+						begin 
+						q <= ~q;
+						qb <= ~qb;
+						end 
+			end
+end 
+endmodule
+```
 
 **RTL LOGIC FOR FLIPFLOPS**
 
+<img width="1917" height="1018" alt="Screenshot 2026-09-08 093504" src="https://github.com/user-attachments/assets/a5acff68-5e8c-4d05-bbf6-3f2c3ee9f8b0" />
+
+
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
+<img width="1917" height="1016" alt="Screenshot 2026-09-08 094354" src="https://github.com/user-attachments/assets/4cc21095-66f0-4c6d-a74f-2743ce618501" />
+
+
 **RESULTS**
+
+Thus, the JK Flip-Flop was successfully implemented using Verilog HDL with an if-else behavioral description, and its functionality was verified according to the JK flip-flop functional table. The flip-flop performed hold, set, reset, and toggle operations correctly for the corresponding input combinations.
